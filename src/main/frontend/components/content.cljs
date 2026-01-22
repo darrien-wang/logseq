@@ -10,6 +10,7 @@
             [frontend.context.i18n :refer [t]]
             [frontend.db :as db]
             [frontend.extensions.fsrs :as fsrs]
+            [frontend.handler.ai :as ai-handler]
             [frontend.handler.common.developer :as dev-common-handler]
             [frontend.handler.editor :as editor-handler]
             [frontend.handler.property :as property-handler]
@@ -202,6 +203,12 @@
         {:key "Toggle number list"
          :on-click #(state/pub-event! [:editor/toggle-own-number-list (state/get-selection-block-ids)])}
         (t :context-menu/toggle-number-list))
+
+       (shui/dropdown-menu-item
+        {:key "Deep Dive"
+         :on-click (fn [_e]
+                     (ai-handler/deep-dive! block-id))}
+        "🧠 Deep Dive")
 
        (shui/dropdown-menu-separator)
 

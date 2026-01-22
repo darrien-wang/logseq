@@ -1,5 +1,5 @@
 {
-    "name": "logseq",
+    "name": "LifeOS",
     "version": "0.0.1",
     "private": true,
     "main": "static/electron.js",
